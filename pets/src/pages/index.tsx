@@ -1,8 +1,13 @@
 import type { NextPage } from 'next'
 import Title from '../ui/components/Title/Title';
 import List from '../ui/components/List/List';
-
+import { Dialog, TextField, Grid, DialogActions, Button, Snackbar } from '@mui/material'
+import { useIndex } from '../data/hooks/pages/useIndex'
 const Home: NextPage = () => {
+  const {
+    listaPets
+  } = useIndex();
+
   return (
     <div>
       <Title 
@@ -14,21 +19,50 @@ const Home: NextPage = () => {
           </span>
                 }/>
       <List
-        pets={[
-          {
-            id: 1,
-            name: "megatron",
-            history: 'aaaaaaaaa',
-            image: "https://th.bing.com/th/id/R.d45e0495385b96eab3fa1b501b2b6633?rik=0kx2r2ZssI1WQQ&pid=ImgRaw&r=0"
-          }, 
-          {
-            id: 2,
-            name: "optimus prime",
-            history: 'bbbbbbbbb',
-            image: "https://th.bing.com/th/id/R.224e2aaa26c48c5bf1f1b9ec000728fc?rik=3rjvpjcWX1FDpA&riu=http%3a%2f%2f3.bp.blogspot.com%2f--LcjwhvZ5EA%2fTpSaZzdV-rI%2fAAAAAAAAACk%2fuZngFDtwnsg%2fs1600%2fJoshNizzi_TF3_21.jpg&ehk=joV2vCjBVyTE25lzyTRoXfbOn0PdYkpCE6hcbGB4Lps%3d&risl=&pid=ImgRaw&r=0"
-          }
-        ]}
+        pets={listaPets}
       />
+
+
+      <Dialog //cria a mensagem q se expande quando clicamos em adotar 1 pet
+        open={false}
+        fullWidth
+        PaperProps={{ sx: { p: 5 } }}
+      >
+        <Grid container spacing={2}>
+          <Grid item xs={12}>
+            <TextField //gera o campo bonitinho de input do usuario
+              label={'E-mail'}
+              type={"email"} //definir essa propriedade ajuda na hora da visualização por smartphone, quando a pessoa clica no campo abre o teclado padrão
+              fullWidth
+            />
+          </Grid>
+          <Grid item xs={12}>
+            <TextField //gera o campo bonitinho de input do usuario
+              label={'Quantia por mês'}
+              type={'number'} //enquanto que aqui abrirá o teclado numerico
+              fullWidth
+            />
+          </Grid>
+        </Grid>
+        <DialogActions sx={{ mt: 5 }}>
+          <Button
+            color={'secondary'}
+          >
+            Cancelar!
+          </Button>
+          <Button
+            variant={'contained'}
+          >
+            Confirmar Adoção!
+          </Button>
+        </DialogActions>
+      </Dialog>
+
+      <Snackbar
+      open = {false}
+      message = {'aaaaaaaaaaaaa'}
+      />
+
     </div>
   )
 }
