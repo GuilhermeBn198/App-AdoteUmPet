@@ -5,7 +5,16 @@ import { Dialog, TextField, Grid, DialogActions, Button, Snackbar } from '@mui/m
 import { useIndex } from '../data/hooks/pages/useIndex'
 const Home: NextPage = () => {
   const {
-    listaPets
+    listaPets,
+    petSelecionado,
+    setPetSelecionado,
+    email,
+		setEmail,
+		valor,
+		setValor,
+    mensagem,
+    setMensagem,
+    adotar
   } = useIndex();
 
   return (
@@ -20,13 +29,15 @@ const Home: NextPage = () => {
                 }/>
       <List
         pets={listaPets}
+        onSelect={(pet) => setPetSelecionado(pet)}
       />
 
 
       <Dialog //cria a mensagem q se expande quando clicamos em adotar 1 pet
-        open={false}
+        open={petSelecionado !== null}
         fullWidth
         PaperProps={{ sx: { p: 5 } }}
+        onClose={() => setPetSelecionado(null)}
       >
         <Grid container spacing={2}>
           <Grid item xs={12}>
@@ -34,6 +45,8 @@ const Home: NextPage = () => {
               label={'E-mail'}
               type={"email"} //definir essa propriedade ajuda na hora da visualização por smartphone, quando a pessoa clica no campo abre o teclado padrão
               fullWidth
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
             />
           </Grid>
           <Grid item xs={12}>
@@ -41,17 +54,21 @@ const Home: NextPage = () => {
               label={'Quantia por mês'}
               type={'number'} //enquanto que aqui abrirá o teclado numerico
               fullWidth
+              value={valor}
+              onChange={(e) => setValor(e.target.value)}
             />
           </Grid>
         </Grid>
         <DialogActions sx={{ mt: 5 }}>
           <Button
             color={'secondary'}
+            onClick={() => setPetSelecionado(null)}
           >
             Cancelar!
           </Button>
           <Button
             variant={'contained'}
+            OnClick={() => adotar()}
           >
             Confirmar Adoção!
           </Button>
@@ -59,8 +76,10 @@ const Home: NextPage = () => {
       </Dialog>
 
       <Snackbar
-      open = {false}
-      message = {'aaaaaaaaaaaaa'}
+      open = {mensagem.length > 0}
+      message = {mensagem}
+      autoHideDuration={2500}
+      onClose={() => setMensagem('')}
       />
 
     </div>
