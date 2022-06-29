@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Http\Requests\PetRequest;
 use App\Models\Pet;
 
 class PetController extends Controller
@@ -15,7 +15,13 @@ class PetController extends Controller
         return Pet::get();
     }
 
-    public function store(){
-        echo 'estou no controller de pets na criação';
+    public function store(PetRequest $request){
+        $request->validate();
+
+        $dadosDoPet = $request->all();
+
+        //dd($dadosDoPet); //this function return to us the inside of the variable in its argument
+
+        return Pet::create($dadosDoPet);
     }
 }
