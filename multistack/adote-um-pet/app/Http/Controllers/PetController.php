@@ -14,4 +14,8 @@ class PetController extends Controller
     public function index() {
         return Pet::get();
     }
+
+    public function store(){
+        echo 'estou no controller de pets na criação';
+    }
 }
