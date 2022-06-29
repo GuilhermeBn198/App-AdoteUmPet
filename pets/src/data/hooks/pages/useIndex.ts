@@ -15,10 +15,45 @@ export function useIndex(){
 			setListaPets(resposta.data)
 		})
 	}, [])
+
+	useEffect(() => {
+		if(petSelecionado === null){
+			limparFormulario();
+		}
+	}, [petSelecionado])
 	
 	function adotar(){
+		if(petSelecionado !== null){
+			if (validarDadosAdocao()){
+				//
+				ApiService.post('/adocoes', {
+					pet_id: petSelecionado.id,
+					email,
+					valor
+				})
+					.then(() => {
+						setPetSelecionado(null);
+						setMensagem('Pet adotado com sucesso');
+					})
+					.catch((error: AxiosError) => {
+						setMensagem(error.response?.data.message);
+					})
+			} else {
+				setMensagem('Preencha todos os campos corretamente!')
+			}
 
+		}
 	}
+
+	function limparFormulario(){
+		setEmail('');
+		setValor('');		
+	}
+	
+	function validarDadosAdocao(){
+		return email.length > 0 && valor.length > 0;
+	}
+
 	return {
 		listaPets,
 		petSelecionado,

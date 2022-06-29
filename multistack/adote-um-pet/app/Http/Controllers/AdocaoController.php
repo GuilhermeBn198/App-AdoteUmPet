@@ -7,9 +7,8 @@ use App\Models\Adocao;
 
 class AdocaoController extends Controller
 {
-    public function index()
-    {
-        echo 'cheguei no relatorio de adoção';
+    public function index(){
+        return Adocao::get();
     }
     /**
      * cria um novo registro de adoção enquanto verifica os campos de entrada do formulário

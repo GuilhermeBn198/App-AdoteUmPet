@@ -17,6 +17,7 @@ const Home: NextPage = () => {
     adotar
   } = useIndex();
 
+  // console.log(listaPets)
   return (
     <div>
       <Title 
@@ -68,7 +69,7 @@ const Home: NextPage = () => {
           </Button>
           <Button
             variant={'contained'}
-            OnClick={() => adotar()}
+            onClick={() => adotar()}
           >
             Confirmar Adoção!
           </Button>

@@ -4,6 +4,5 @@ export const TextService = {
 			return text;
 		}
 		return text.slice(0, maxLength) + '...';
-		
 	}
 }

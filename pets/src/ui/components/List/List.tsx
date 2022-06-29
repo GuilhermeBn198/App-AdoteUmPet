@@ -25,7 +25,7 @@ export default function Lista(props: ListaProps){
 					<Info>
 						<Name>{pet.name}</Name>
 						<Description>
-							{TextService.limitTextLength(pet.history, maxLengthtext)}
+							{TextService.limitTextLength(pet.historia, maxLengthtext)}
 						</Description>
 						<Button
 							variant={'contained'} 
