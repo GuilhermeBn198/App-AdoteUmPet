@@ -7,6 +7,10 @@ use App\Models\Adocao;
 
 class AdocaoController extends Controller
 {
+    public function index()
+    {
+        echo 'cheguei no relatorio de adoção';
+    }
     /**
      * cria um novo registro de adoção enquanto verifica os campos de entrada do formulário
      * @param Request $request

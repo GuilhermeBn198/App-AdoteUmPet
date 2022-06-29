@@ -15,9 +15,14 @@ class PetController extends Controller
         return Pet::get();
     }
 
-    public function store(PetRequest $request){
-        $request->validate();
 
+    /**
+     * Cria um pet no banco de dados
+     * 
+     * @param PetRequest $request
+     * @return Pet
+     */
+    public function store(PetRequest $request){
         $dadosDoPet = $request->all();
 
         //dd($dadosDoPet); //this function return to us the inside of the variable in its argument
