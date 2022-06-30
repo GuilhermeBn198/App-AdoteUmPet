@@ -2,13 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\AdocaoCollection;
 use Illuminate\Http\Request;
 use App\Models\Adocao;
 
 class AdocaoController extends Controller
 {
     public function index(){
-        return Adocao::get();
+        $adocoes = Adocao::with('pet')->get(); //função with faz com que seja retornado TAMBÉM as informações de PET!
+        return new AdocaoCollection($adocoes);
     }
     /**
      * cria um novo registro de adoção enquanto verifica os campos de entrada do formulário

@@ -23,6 +23,7 @@ class PetController extends Controller
      * @return Pet
      */
     public function store(PetRequest $request){
+        
         $dadosDoPet = $request->all();
 
         //dd($dadosDoPet); //this function return to us the inside of the variable in its argument
