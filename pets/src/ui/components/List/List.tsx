@@ -21,9 +21,9 @@ export default function Lista(props: ListaProps){
 		<ListaStyled> {/* lista braba */}
 			{props.pets.map(pet => (
 				<ItemList key={pet.id}>  {/* catioro 1 */}
-					<Image src={pet.image} alt={pet.name}/>
+					<Image src={pet.foto} alt={pet.nome}/>
 					<Info>
-						<Name>{pet.name}</Name>
+						<Name>{pet.nome}</Name>
 						<Description>
 							{TextService.limitTextLength(pet.historia, maxLengthtext)}
 						</Description>
@@ -32,7 +32,7 @@ export default function Lista(props: ListaProps){
 							fullWidth
 							onClick = {() => props.onSelect(pet)}
 						>
-							Adotar {pet.name}!
+							Adotar {pet.nome}!
 						</Button>
 						</Info>
 				</ItemList>

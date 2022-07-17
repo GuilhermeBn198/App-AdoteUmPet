@@ -1,4 +1,4 @@
-import { Link  } from '@mui/material';
+import { Link, Box } from '@mui/material';
 import NextLink from 'next/link';
 import {
 	HeaderContainer,
@@ -12,9 +12,23 @@ export default function HeaderAdmin(){
 			<div>
 				<Logo src='\images\logo.svg' alt='Adote um Pet'/>
 				<LinksContainer>
-				<Link>Cadastrar Pet</Link>
-				<Link>Rekatório de Adoção</Link></LinksContainer>
+				<Link component={NextLink} href={'/pets/cadastro'}>
+					<a>Cadastrar Pet</a>
+				</Link>
+				<Link component={NextLink} href={'/pets/relatorio'}>
+					<a>
+						Relatório{' '} 
+							<Box
+								component={'span'}
+								sx={{display: {sm: 'initial', xs: 'none'}}}	
+							>
+							de Adoção
+							</Box>
+					</a>
+				</Link>
+				</LinksContainer>
 			</div> 
+			
 		</HeaderContainer>
 	)
 }

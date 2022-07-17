@@ -14,8 +14,20 @@ export const HeaderContainer = styled('header') `
 		align-items: center;
 		gap: ${({ theme }) => theme.spacing(2)};
 	}
+
+	a{
+		font-size: 14px;
+
+	}
 `;
 
-export const Logo = styled('img')``;
+export const Logo = styled('img')`
+	width: 125px;
+`;
 
-export const LinksContainer = styled('nav')``;
+export const LinksContainer = styled('nav')`
+	display: flex;
+	gap: ${({ theme }) => theme.spacing(2)};
+	flex-wrap: wrap;
+	justify-content: flex-end;
+`;
