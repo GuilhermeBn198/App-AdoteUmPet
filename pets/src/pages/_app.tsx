@@ -11,7 +11,7 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   return (
   <ThemeProvider theme={theme}>
-    {router.pathname === '/' ? <Header /> : <HeaderAdmin />}
+    <HeaderAdmin />
     <Component {...pageProps} />
   </ThemeProvider>
   )
