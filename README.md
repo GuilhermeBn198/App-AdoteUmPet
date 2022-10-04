@@ -1,26 +1,50 @@
-# App-SemanaFullstack
- 
-tem que rodar cada 1 das pastas em terminais separados, >pets< é o frontend e o >adote-um-pet< é o back, para fazer funcionar o front bastar dar npm install dps npm run dev
+# App Semana Full Stack
 
-para fazer o back funcionar precisará ter php instalado no pc, habilitado as extenções através da retirada dos ; dos comentarios a seguir no arquivo php.ini:
-- extension=curl
-- extension=fileinfo
-- extension=mbstring
-- extension=openssl
-- extension=pdo_sqlite
+Tem que rodar as pastas em terminais separados. >pets< é o frontend e >adote-um-pet< o backend.
 
-e 
-- extension_dir = "ext"
+Para rodar o frontend execute:
 
-feito isso, voce pode entrar na pasta pelo terminal,composer install e composer dumpautoload -o
+```shell
+npm install
+npm run dev
+```
 
-gerar a chave de acesso
+Para rodar o backend você precisa:
 
+- Instalar o PHP no PC;
+- Habilitar as extensões descomentando as seguintes linhas no php.ini:
+  - extension=curl
+  - extension=fileinfo
+  - extension=mbstring
+  - extension=openssl
+  - extension=pdo_sqlite
+  - extension_dir = "ext"
+
+- Entre na pasta via terminal e execute os comandos:
+
+```shell
+composer install
+composer dumpautoload -o
+```
+
+- Crie .env baseado na .env.example;
+
+- Gerar a chave de acesso:
+
+```shell
 php artisan key:generate
+```
 
-e tentar rodar o servidor com o comando php artisan serve
+- Rodar o servidor:
 
-pode-se seguir esse tutorial para tentar executá-lo
-https://medium.com/@colorfield/install-an-existing-laravel-project-c6e6bf28d5c6
+```shell
+php artisan serve
+```
 
-eu tentei subir a aplicação pro heroku mas por algum erro envolvendo CORS ou as variáveis de ambiente do backend acabou que não funcionou. o Link é https://guibnpetsfront.herokuapp.com/ para visualizar o projeto, caso queira ver.
+[Pode-se seguir esse tutorial para tentar executá-lo.](https://medium.com/@colorfield/install-an-existing-laravel-project-c6e6bf28d5c6)
+
+Houve uma tentativa de subir a aplicação pro Heroku, mas por algum erro envolvendo CORS ou as variáveis de ambiente do backend, acabou que não funcionou.
+
+## Demo
+
+[Demo](https://guibnpetsfront.herokuapp.com/)
