@@ -1,6 +1,6 @@
 # App-SemanaFullstack
  
-tem que rodar cada 1 das pastas em terminais separados, <pets> é o frontend e o >adote-um-pet< é o back, para fazer funcionar o front bastar dar npm install dps npm run dev
+tem que rodar cada 1 das pastas em terminais separados, >pets< é o frontend e o >adote-um-pet< é o back, para fazer funcionar o front bastar dar npm install dps npm run dev
 
 para fazer o back funcionar precisará ter php instalado no pc, habilitado as extenções através da retirada dos ; dos comentarios a seguir no arquivo php.ini:
 - extension=curl
